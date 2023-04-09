@@ -34,8 +34,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     private static final String[] AUTH_WHITE_LIST = {
-            "/api/auth/login**",
-            "/api/**",
+            "/api/customer/save",
+            "/api/auth/login",
             "/health/**",
             "/swagger*",
             "/webjars/**",

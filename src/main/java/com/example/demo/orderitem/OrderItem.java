@@ -3,6 +3,7 @@ package com.example.demo.orderitem;
 import com.example.demo.book.Book;
 import com.example.demo.common.entity.BaseEntityId;
 import com.example.demo.order.Order;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,9 +27,6 @@ public class OrderItem extends BaseEntityId {
     @ManyToOne(optional = false)
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
-
-    @Column(name = "last_price")
-    private Double lastPrice;
 
     private Long amount;
 

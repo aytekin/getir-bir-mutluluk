@@ -34,7 +34,7 @@ public class Order extends BaseEntityId {
     private List<OrderItem> orderItems;
 
     @Column(name = "total_cost", nullable = false)
-    private Long totalCost;
+    private Double totalCost;
 
     @Column(name = "order_status", nullable = false)
     private OrderStatus orderStatus;

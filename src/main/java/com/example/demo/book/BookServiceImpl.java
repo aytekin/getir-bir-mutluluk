@@ -20,15 +20,25 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public BookResponse save(@RequestBody @Valid BookSaveRequest request) {
-        bookRepository.findByName(request.getName()).orElseThrow(() -> new GetirException("Book already exist with name " + request.getName()));
+        bookRepository.findByName(request.getName()).ifPresent(b -> {
+            throw new GetirException("Book already exist with name " + request.getName());
+        });
         return ObjectMappers.map(bookRepository.save(ObjectMappers.map(request, Book.class)), BookResponse.class);
     }
 
 
     @Override
     public BookResponse decreaseStock(@RequestParam String id) {
+        return decreaseStockWithAmount(id, 1L);
+    }
+
+    @Override
+    public BookResponse decreaseStockWithAmount(String id, Long amount) {
         Book book = bookRepository.findById(id).orElseThrow(EntityNotFound::new);
-        book.setStock(book.getStock() - 1);
+        if (book.getStock() - amount < 0) {
+            throw new GetirException("Stock not enough");
+        }
+        book.setStock(book.getStock() - amount);
         return ObjectMappers.map(bookRepository.save(book), BookResponse.class);
     }
 }

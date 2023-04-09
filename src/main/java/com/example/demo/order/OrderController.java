@@ -6,11 +6,14 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
-@RequestMapping("/api/orders/")
+@RequestMapping("/api/order/")
 @AllArgsConstructor
 public class OrderController {
 
@@ -22,7 +25,7 @@ public class OrderController {
     }
 
     @PostMapping("save")
-    public OrderResponse save(OrderSaveRequest request) {
+    public OrderResponse save(@RequestBody @Valid OrderSaveRequest request) {
         return orderService.save(request);
     }
 

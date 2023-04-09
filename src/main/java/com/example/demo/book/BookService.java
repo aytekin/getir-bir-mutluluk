@@ -7,4 +7,5 @@ public interface BookService {
     BookResponse save(BookSaveRequest request);
 
     BookResponse decreaseStock(String id);
+    BookResponse decreaseStockWithAmount(String id, Long amount);
 }

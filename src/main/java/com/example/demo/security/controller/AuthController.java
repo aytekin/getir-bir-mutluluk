@@ -16,8 +16,9 @@ import javax.validation.Valid;
 @AllArgsConstructor
 public class AuthController {
     private final AuthService authService;
+
     @PostMapping("login")
-    public LoginResponse login (@RequestBody @Valid LoginRequest request){
+    public LoginResponse login(@RequestBody @Valid LoginRequest request) {
         return authService.login(request);
     }
 }
