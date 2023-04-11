@@ -3,7 +3,10 @@ package com.getir.project.orderitem;
 import com.getir.project.book.Book;
 import com.getir.project.common.entity.BaseEntityId;
 import com.getir.project.order.Order;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
@@ -14,6 +17,9 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "t_order_item")
 public class OrderItem extends BaseEntityId {
 

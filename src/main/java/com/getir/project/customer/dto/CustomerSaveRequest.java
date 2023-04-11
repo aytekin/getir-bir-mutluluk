@@ -4,7 +4,10 @@ package com.getir.project.customer.dto;
 import com.getir.project.common.constants.RegexConstants;
 import com.getir.project.common.utils.ToLowerCaseConverter;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
@@ -14,6 +17,9 @@ import javax.validation.constraints.Size;
 
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class CustomerSaveRequest {
     @NotNull(message = "Firstname cannot be null")
     @Pattern(regexp = RegexConstants.FIRST_NAME, message = "Firstname can contains only alphabet characters")

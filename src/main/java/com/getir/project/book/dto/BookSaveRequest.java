@@ -1,6 +1,9 @@
 package com.getir.project.book.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.Max;
@@ -10,6 +13,9 @@ import javax.validation.constraints.Size;
 
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class BookSaveRequest {
     @Size(min = 3, max = 32, message = "Name length must be in between 3-32 characters")
     @NotBlank(message = "Name cannot be null")

@@ -4,7 +4,10 @@ import com.getir.project.common.entity.BaseEntityId;
 import com.getir.project.common.enums.OrderStatus;
 import com.getir.project.customer.Customer;
 import com.getir.project.orderitem.OrderItem;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
@@ -20,6 +23,9 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "t_order")
 public class Order extends BaseEntityId {
     @ManyToOne(fetch = FetchType.EAGER)

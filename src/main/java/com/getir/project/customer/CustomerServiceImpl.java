@@ -1,5 +1,6 @@
 package com.getir.project.customer;
 
+import com.getir.project.common.exception.GetirException;
 import com.getir.project.common.utils.ObjectMappers;
 import com.getir.project.customer.dto.CustomerResponse;
 import com.getir.project.customer.dto.CustomerSaveRequest;
@@ -33,11 +34,11 @@ public class CustomerServiceImpl implements CustomerService {
 
     private void checkUsernameAndEmailExist(CustomerSaveRequest request) {
         repository.findByEmail(request.getEmail()).ifPresent(s -> {
-            throw new RuntimeException(); //if exist throw ex TODO AlreadyExistException
+            throw new GetirException("customer already exist with email : " + request.getEmail()); //if exist throw ex
         });
 
         repository.findByUsername(request.getUsername()).ifPresent(s -> {
-            throw new RuntimeException(); //if exist throw ex TODO AlreadyExistException
+            throw new GetirException("customer already exist with username : " + request.getUsername()); //if exist throw ex
         });
     }
 }
