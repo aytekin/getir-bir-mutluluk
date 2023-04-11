@@ -49,7 +49,7 @@ public class CustomerControllerIntegrationTest {
                 .lastname("birmutluluk")
                 .username(UUID.randomUUID().toString())
                 .password("Getir...123")
-                .email(UUID.randomUUID().toString() + "@getir.com").build();
+                .email(UUID.randomUUID() + "@getir.com").build();
     }
 
     private String createURLWithPort(String uri) {
